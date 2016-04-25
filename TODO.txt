@@ -1,0 +1,12 @@
+General TODO list
+
+Graphics
+Database
+Login page / link to google play
+Add components to background
+Wires (draw or component image)
+Save circuits
+Groups
+Testing
+Bug fixing
+
