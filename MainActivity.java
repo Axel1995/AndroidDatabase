@@ -6,13 +6,11 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 public class MainActivity extends Activity {
-    private ImageView img;
-    private ImageView resimg;
-    private ViewGroup rootLayout;
     private int xCoord;
     private int yCoord;
 
@@ -20,17 +18,66 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        rootLayout = (ViewGroup) findViewById(R.id.view_root);
-        img = (ImageView) rootLayout.findViewById(R.id.imageView);
-        resimg = (ImageView) rootLayout.findViewById(R.id.imageView1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(150,150);
-        RelativeLayout.LayoutParams dog = new RelativeLayout.LayoutParams(150,150);
+        final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.view_root);
+        Button resbutton = (Button) findViewById(R.id.resistorbutton);
+        Button compbutton = (Button) findViewById(R.id.capacitorbutton);
+        Button ledbutton = (Button) findViewById(R.id.ledbutton);
+        Button indbutton = (Button) findViewById(R.id.button5);
 
-        img.setLayoutParams(layoutParams);
-        img.setOnTouchListener(new myListener());
-        resimg.setLayoutParams(dog);
-        resimg.setOnTouchListener(new myListener());
+        resbutton.setOnClickListener (new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                ImageView iv = new ImageView(getApplicationContext());
+                iv.setImageDrawable(getDrawable(R.drawable.res));
+                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                lp.addRule(RelativeLayout.RIGHT_OF, R.id.resistorbutton);
+                iv.setLayoutParams(lp);
+                iv.setOnTouchListener(new myListener());
+                relativeLayout.addView(iv);
+            }
+        });
+
+        compbutton.setOnClickListener (new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                ImageView iv = new ImageView(getApplicationContext());
+                iv.setImageDrawable(getDrawable(R.drawable.compac));
+                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                lp.addRule(RelativeLayout.RIGHT_OF, R.id.capacitorbutton);
+                iv.setLayoutParams(lp);
+                iv.setOnTouchListener(new myListener());
+                relativeLayout.addView(iv);
+            }
+        });
+
+        ledbutton.setOnClickListener (new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                ImageView iv = new ImageView(getApplicationContext());
+                iv.setImageDrawable(getDrawable(R.drawable.led));
+                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                lp.addRule(RelativeLayout.RIGHT_OF, R.id.ledbutton);
+                iv.setLayoutParams(lp);
+                iv.setOnTouchListener(new myListener());
+                relativeLayout.addView(iv);
+            }
+        });
+
+        indbutton.setOnClickListener (new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                ImageView iv = new ImageView(getApplicationContext());
+                iv.setImageDrawable(getDrawable(R.drawable.ind));
+                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                lp.addRule(RelativeLayout.RIGHT_OF, R.id.button5);
+                iv.setLayoutParams(lp);
+                iv.setOnTouchListener(new myListener());
+                relativeLayout.addView(iv);
+            }
+        });
+
     }
+
 
     private final class myListener implements View.OnTouchListener {
         public boolean onTouch(View view, MotionEvent event) {
@@ -57,8 +104,9 @@ public class MainActivity extends Activity {
                     layoutParams.bottomMargin = -250;
                     view.setLayoutParams(layoutParams);
                     break;
+                default:
+                    break;
             }
-            rootLayout.invalidate();
             return true;
         }
     }
