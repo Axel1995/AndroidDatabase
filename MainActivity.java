@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 public class MainActivity extends Activity {
+    /*Hierdie gebruik in "drag 'n' drop"*/
     private int xCoord;
     private int yCoord;
 
@@ -19,12 +20,12 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.view_root);
-        Button resbutton = (Button) findViewById(R.id.resistorbutton);
-        Button compbutton = (Button) findViewById(R.id.capacitorbutton);
+        Button resistorbutton = (Button) findViewById(R.id.resistorbutton);
+        Button compacitorbutton = (Button) findViewById(R.id.capacitorbutton);
         Button ledbutton = (Button) findViewById(R.id.ledbutton);
-        Button indbutton = (Button) findViewById(R.id.button5);
+        Button inductorbutton = (Button) findViewById(R.id.button5);
 
-        resbutton.setOnClickListener (new View.OnClickListener(){
+        resistorbutton.setOnClickListener (new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 ImageView iv = new ImageView(getApplicationContext());
@@ -37,7 +38,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        compbutton.setOnClickListener (new View.OnClickListener(){
+        compacitorbutton.setOnClickListener (new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 ImageView iv = new ImageView(getApplicationContext());
@@ -63,7 +64,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        indbutton.setOnClickListener (new View.OnClickListener(){
+        inductorbutton.setOnClickListener (new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 ImageView iv = new ImageView(getApplicationContext());
