@@ -21,16 +21,21 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.view_root);
         Button resistorbutton = (Button) findViewById(R.id.resistorbutton);
-        Button compacitorbutton = (Button) findViewById(R.id.capacitorbutton);
+        Button capacitorbutton = (Button) findViewById(R.id.capacitorbutton);
         Button ledbutton = (Button) findViewById(R.id.ledbutton);
         Button inductorbutton = (Button) findViewById(R.id.button5);
+        Button probebutton = (Button) findViewById(R.id.button6);
+        Button wirebutton = (Button) findViewById(R.id.wirebutton);
+        Button savebutton = (Button) findViewById(R.id.button7);
+        Button openbutton = (Button) findViewById(R.id.button8);
 
         resistorbutton.setOnClickListener (new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 ImageView iv = new ImageView(getApplicationContext());
                 iv.setImageDrawable(getDrawable(R.drawable.res));
-                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 
+			ViewGroup.LayoutParams.WRAP_CONTENT);
                 lp.addRule(RelativeLayout.RIGHT_OF, R.id.resistorbutton);
                 iv.setLayoutParams(lp);
                 iv.setOnTouchListener(new myListener());
@@ -43,7 +48,8 @@ public class MainActivity extends Activity {
             public void onClick(View view){
                 ImageView iv = new ImageView(getApplicationContext());
                 iv.setImageDrawable(getDrawable(R.drawable.compac));
-                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 
+			ViewGroup.LayoutParams.WRAP_CONTENT);
                 lp.addRule(RelativeLayout.RIGHT_OF, R.id.capacitorbutton);
                 iv.setLayoutParams(lp);
                 iv.setOnTouchListener(new myListener());
@@ -56,11 +62,27 @@ public class MainActivity extends Activity {
             public void onClick(View view){
                 ImageView iv = new ImageView(getApplicationContext());
                 iv.setImageDrawable(getDrawable(R.drawable.led));
-                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 
+			ViewGroup.LayoutParams.WRAP_CONTENT);
                 lp.addRule(RelativeLayout.RIGHT_OF, R.id.ledbutton);
                 iv.setLayoutParams(lp);
                 iv.setOnTouchListener(new myListener());
                 relativeLayout.addView(iv);
+            }
+        });
+
+	ledbutton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                ImageView iv = new ImageView(getApplicationContext());
+                iv.setImageDrawable(getDrawable(R.drawable.ledred));
+                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT);
+                lp.addRule(RelativeLayout.RIGHT_OF, R.id.ledbutton);
+                iv.setLayoutParams(lp);
+                iv.setOnTouchListener(new myListener());
+                relativeLayout.addView(iv);
+                return true;
             }
         });
 
@@ -69,7 +91,8 @@ public class MainActivity extends Activity {
             public void onClick(View view){
                 ImageView iv = new ImageView(getApplicationContext());
                 iv.setImageDrawable(getDrawable(R.drawable.ind));
-                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 
+			ViewGroup.LayoutParams.WRAP_CONTENT);
                 lp.addRule(RelativeLayout.RIGHT_OF, R.id.button5);
                 iv.setLayoutParams(lp);
                 iv.setOnTouchListener(new myListener());
@@ -77,7 +100,71 @@ public class MainActivity extends Activity {
             }
         });
 
+	wirebutton.setOnClickListener (new View.OnClickListener(){
+            @Override
+            public void onClick(View view){//// FIXME: 2016-05-17
+                /*drade het 2 punte*/
+                for(int i=0; i<2; i++){
+                    ImageView iv = new ImageView(getApplicationContext());
+                    iv.setImageDrawable(getDrawable(R.drawable.redwire));
+                    RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT);
+                    lp.addRule(RelativeLayout.RIGHT_OF, R.id.button5);
+                    iv.setLayoutParams(lp);
+                    iv.setOnTouchListener(new myListener());
+                    relativeLayout.addView(iv);
+                }
+            }
+        });
+
+	probebutton.setOnClickListener (new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                ImageView iv = new ImageView(getApplicationContext());
+                ImageView iv2 = new ImageView(getApplicationContext());
+                iv.setImageDrawable(getDrawable(R.drawable.voltprobe));
+                iv2.setImageDrawable(getDrawable(R.drawable.blackprobe));
+                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT);
+                RelativeLayout.LayoutParams lpp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT);
+                lp.addRule(RelativeLayout.RIGHT_OF, R.id.button5);
+                lpp.addRule(RelativeLayout.RIGHT_OF, R.id.button8);
+                iv.setLayoutParams(lp);
+                iv2.setLayoutParams(lpp);
+                iv.setOnTouchListener(new myListener());
+                iv2.setOnTouchListener(new myListener());
+                relativeLayout.addView(iv);
+                relativeLayout.addView(iv2);
+            }
+        });
+
+	probebutton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                ImageView iv = new ImageView(getApplicationContext());
+                ImageView iv2 = new ImageView(getApplicationContext());
+                iv.setImageDrawable(getDrawable(R.drawable.ampprobe));
+                iv2.setImageDrawable(getDrawable(R.drawable.blackprobe));
+                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT);
+                RelativeLayout.LayoutParams lpp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT);
+                lp.addRule(RelativeLayout.RIGHT_OF, R.id.button5);
+                lpp.addRule(RelativeLayout.RIGHT_OF, R.id.button8);
+                iv.setLayoutParams(lp);
+                iv2.setLayoutParams(lpp);
+                iv.setOnTouchListener(new myListener());
+                iv2.setOnTouchListener(new myListener());
+                relativeLayout.addView(iv);
+                relativeLayout.addView(iv2);
+                return true;
+            }
+        });
+
     }
+
+	
 
 
     private final class myListener implements View.OnTouchListener {
