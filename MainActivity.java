@@ -162,10 +162,21 @@ public class MainActivity extends Activity {
             }
         });
 
+	savebutton.setOnClickListener (new View.OnClickListener(){
+            @Override
+            public void onClick(View view){ //// FIXME: 2016-05-17
+                //TODO save kak
+            }
+        });
+        //TODO long click save online
+        openbutton.setOnClickListener (new View.OnClickListener(){
+            @Override
+            public void onClick(View view){ //// FIXME: 2016-05-17
+                //TODO open old file
+            }
+        });
+
     }
-
-	
-
 
     private final class myListener implements View.OnTouchListener {
         public boolean onTouch(View view, MotionEvent event) {
