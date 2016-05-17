@@ -1,0 +1,163 @@
+public void cloudSave(){
+        save();
+        // vale to txt ston kolo sou
+
+    }
+
+    public void open(String filename){
+    // na to anoiksoume mi gamisw
+    }
+
+    public void save(){
+
+        file(context,thisSave,1);
+        int position;
+
+        if (!saved){
+            if (name == capacitor){
+                position = getLocationOnScreen();
+                try{
+                    FileWriter writer = new FileWriter(thisSave);
+                    writer.append("\n"+"capacitor "+position);
+                    writer.flush();
+                    writer.close();
+
+                }catch (Exception e){
+
+                }
+            }
+            else if (name == resistor){
+                position = getLocationOnScreen();
+                try{
+                    FileWriter writer = new FileWriter(thisSave);
+                    writer.append("\n"+"resistor "+position);
+                    writer.flush();
+                    writer.close();
+
+                }catch (Exception e){
+
+                }
+            }
+            else if (name == LED){
+                position = getLocationOnScreen();
+                try{
+                    FileWriter writer = new FileWriter(thisSave);
+                    writer.append("\n"+"LED "+position);
+                    writer.flush();
+                    writer.close();
+
+                }catch (Exception e){
+
+                }
+            }
+            else if (name == wire){
+                position = getLocationOnScreen();
+                try{
+                    FileWriter writer = new FileWriter(thisSave);
+                    writer.append("\n"+"wire "+position);
+                    writer.flush();
+                    writer.close();
+
+                }catch (Exception e){
+
+                }
+            }
+            else if (name == vprobe){
+                position = getLocationOnScreen();
+                try{
+                    FileWriter writer = new FileWriter(thisSave);
+                    writer.append("\n"+"vprobe "+position);
+                    writer.flush();
+                    writer.close();
+
+                }catch (Exception e){
+
+                }
+            }
+            else if (name == aprobe){
+                position = getLocationOnScreen();
+                try{
+                    FileWriter writer = new FileWriter(thisSave);
+                    writer.append("\n"+"aprobe "+position);
+                    writer.flush();
+                    writer.close();
+
+                }catch (Exception e){
+
+                }
+            }
+            else if (name == osciprobe){
+                position = getLocationOnScreen();
+                try{
+                    FileWriter writer = new FileWriter(thisSave);
+                    writer.append("\n"+"osciprobe "+position);
+                    writer.flush();
+                    writer.close();
+
+                }catch (Exception e){
+
+                }
+            }
+            else if (name == source){
+                position = getLocationOnScreen();
+                try{
+                    FileWriter writer = new FileWriter(thisSave);
+                    writer.append("\n"+"source "+position);
+                    writer.flush();
+                    writer.close();
+
+                }catch (Exception e){
+
+                }
+            }
+            else if (name == inductor){
+                position = getLocationOnScreen();
+                try{
+                    FileWriter writer = new FileWriter(thisSave);
+                    writer.append("\n"+"inductor "+position);
+                    writer.flush();
+                    writer.close();
+
+                }catch (Exception e){
+
+                }
+            }
+            else if (name == andGate){
+                position = getLocationOnScreen();
+                try{
+                    FileWriter writer = new FileWriter(thisSave);
+                    writer.append("\n"+"andGate "+position);
+                    writer.flush();
+                    writer.close();
+
+                }catch (Exception e){
+
+                }
+            }
+            else if (name == notGate){
+                position = getLocationOnScreen();
+                try{
+                    FileWriter writer = new FileWriter(thisSave);
+                    writer.append("\n"+"notGate "+position);
+                    writer.flush();
+                    writer.close();
+
+                }catch (Exception e){
+
+                }
+            }
+            else if (name == orGate){
+                position = getLocationOnScreen();
+                try{
+                    FileWriter writer = new FileWriter(thisSave);
+                    writer.append("\n"+"orGate "+position);
+                    writer.flush();
+                    writer.close();
+
+                }catch (Exception e){
+
+                }
+            }
+
+        }
+    }
