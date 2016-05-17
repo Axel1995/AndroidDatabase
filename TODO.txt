@@ -2,9 +2,8 @@ General TODO list
 
 Database
 Login page / link to google play
-Wires (draw or component image)
 Save circuits
 Groups
 Testing
-Bug fixing
+Bug fixing - all fixes welcome
 
