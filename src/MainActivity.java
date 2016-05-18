@@ -183,7 +183,14 @@ public class MainActivity extends Activity {
                 //TODO save kak
             }
         });
-        //TODO long click save online
+
+	savebutton.setOnLongClickListener(new View.OnLongClickListener() {//TODO this can be used for online saves :)
+            @Override
+            public boolean onLongClick(View view) {
+                return true;
+            }
+        });
+
         openbutton.setOnClickListener (new View.OnClickListener(){
             @Override
             public void onClick(View view){ //// FIXME: 2016-05-17
