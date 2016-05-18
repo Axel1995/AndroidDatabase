@@ -43,6 +43,21 @@ public class MainActivity extends Activity {
             }
         });
 
+	resistorbutton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                final ImageView iv = new ImageView(getApplicationContext());
+                iv.setImageDrawable(getDrawable(R.drawable.and));
+                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT);
+                lp.addRule(RelativeLayout.RIGHT_OF, R.id.ledbutton);
+                iv.setLayoutParams(lp);
+                iv.setOnTouchListener(new myListener());
+                relativeLayout.addView(iv);
+                return true;
+            }
+        });
+
         compacitorbutton.setOnClickListener (new View.OnClickListener(){
             @Override
             public void onClick(View view){
